@@ -1,0 +1,7 @@
+#add-new-vehicle label.error {
+    color: #a94442;
+}
+.table-image {
+    max-width: 64px;
+    height: auto;
+}
