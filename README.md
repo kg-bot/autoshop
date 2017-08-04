@@ -10,3 +10,13 @@ Create new database that will match info you provided in Step 2
 In your project root folder run `php artisan migrate`
 ### Step 6 ###
 In your project root folder run `php artisan db:seed --class=DatabaseSeeder`
+
+
+### Info ###
+There are two users, admin and member
+
+Member info: `password: temp123`, `email: member@example.com`
+
+Admin info: `password: temp123`, `email: admin@example.com`
+
+You should consult your server provider about url rewrite and vhost if you plan to use them.
