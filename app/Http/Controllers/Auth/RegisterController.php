@@ -70,7 +70,7 @@ class RegisterController extends Controller
     }
 
     /**
-     * We need to overide this because we don't accept new users
+     * We need to overide this because we don't accept new users.
      */
     public function showRegistrationForm()
     {

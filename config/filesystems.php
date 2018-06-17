@@ -57,7 +57,7 @@ return [
 
         'cars' => [
             'driver' => 'local',
-            'root' => 'images/cars'
+            'root' => 'images/cars',
         ],
 
         's3' => [

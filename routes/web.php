@@ -1,4 +1,5 @@
 <?php
+
 // We need to show login/register forms
 Auth::routes();
 /*
@@ -14,17 +15,17 @@ Auth::routes();
 
 Route::get('/', 'IndexController@index');
 
-Route::middleware(['auth', 'ismember'])->group(function() {
+Route::middleware(['auth', 'ismember'])->group(function () {
     // This route is used to add new vehicle
     Route::resource('/vehicles', 'VehicleController');
 
     // Route used to update Audi category
     Route::get('/audi', 'VehicleController@fetchAudi');
 
-    /**
+    /*
      * Admin routes
      */
-    Route::middleware(['isadmin'])->group(function() {
+    Route::middleware(['isadmin'])->group(function () {
         // Route used to access admin panel
         Route::get('/admin', 'AdminController@index');
         // Route used to add new category
@@ -35,4 +36,3 @@ Route::middleware(['auth', 'ismember'])->group(function() {
         Route::get('/admin/approve', 'AdminController@approveVehicle');
     });
 });
-

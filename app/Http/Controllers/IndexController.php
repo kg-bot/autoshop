@@ -2,15 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 use App\Models\Vehicle;
 use App\Models\Category;
+use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
     /**
-     * This method is used only for home page, showing vehicles when user goes to home page
+     * This method is used only for home page, showing vehicles when user goes to home page.
      */
     public function index(Request $request)
     {
@@ -24,15 +23,14 @@ class IndexController extends Controller
 
         $carousel_images = [];
 
-        foreach($vehicles as $vehicle) {
+        foreach ($vehicles as $vehicle) {
             array_push($carousel_images, $vehicle->image_path);
         }
         // If this is  AJAX call we need to list just vechiles
-        if($request->ajax()) {
-            
+        if ($request->ajax()) {
             return view('partials.ajax_vehicles', ['vehicles' => $vehicles, 'carousel_images' => $carousel_images, 'category' => $category]);
         }
-        
+
         $categories = Category::all();
 
         return view('templates.home', ['vehicles' => $vehicles, 'categories' => $categories, 'carousel_images' => $carousel_images, 'category' => $category]);
