@@ -2,9 +2,8 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
-
 use App\Models\Vehicle;
+use Illuminate\Foundation\Http\FormRequest;
 
 class AddNewVehicle extends FormRequest
 {
@@ -16,6 +15,7 @@ class AddNewVehicle extends FormRequest
     public function authorize()
     {
         return true;
+
         return $this->user()->can('create', Vehicle::class);
     }
 
@@ -32,7 +32,7 @@ class AddNewVehicle extends FormRequest
             'price'        => 'required|integer',
             'year'         => 'required|integer|between:1900,2017',
             'kilometers'   => 'required|integer',
-            'image'        => 'bail|required|image|dimensions:min_width=800,min_height=500|max:3000'
+            'image'        => 'bail|required|image|dimensions:min_width=800,min_height=500|max:3000',
         ];
     }
 }
